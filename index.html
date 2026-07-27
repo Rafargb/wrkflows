@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>300 Workflows Profissionais para ComfyUI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #030508;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* --- Barra do Topo Reconstruída em HTML --- */
+        .top-bar-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #030508;
+            padding: 30px 20px 20px 20px;
+            position: relative;
+            z-index: 50;
+        }
+
+        .top-bar {
+            background-color: #0a0a0a;
+            border: 1px solid rgba(255, 215, 0, 0.3); /* Bordinha dourada/amarela suave */
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            padding: 15px 40px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            max-width: 900px; /* Reduzido de 1200px para ficar mais compacto */
+            width: 90%;
+            justify-content: space-between;
+        }
+
+        .top-bar-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-cronometro {
+            width: 40px;
+            height: 40px;
+            /* Ícone de relógio simples SVG */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23A3FF00'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z' /%3E%3C/svg%3E");
+            background-size: cover;
+        }
+
+        .cronometro-texts {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .c-label {
+            color: #d4d4d4;
+            font-size: 10px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .c-time {
+            color: #A3FF00;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            line-height: 1;
+            margin-top: 4px;
+        }
+
+        .divider {
+            width: 1px;
+            height: 40px;
+            background-color: #333;
+            margin: 0 20px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        
+        .price-green {
+            color: #A3FF00;
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0 10px;
+        }
+
+        .price-red {
+            color: #ff2a2a;
+            text-decoration: line-through;
+            font-size: 18px;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .slice-container {
+            width: 100%;
+            max-width: 1536px;
+            position: relative;
+            overflow: hidden; /* Corta o que passar das bordas */
+            /* Sem margem inferior padrão. As próprias imagens já dão o respiro necessário */
+        }
+
+        /* Classe para diminuir as fatias 4 e 6 para que não percam qualidade */
+        .slice-small {
+            max-width: 1100px;
+        }
+        
+        .slice-small::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Sombreamento APENAS nas laterais para camuflar o fundo, topo e base ficam intocados */
+            box-shadow: inset 50px 0 40px -20px #030508, inset -50px 0 40px -20px #030508; 
+            pointer-events: none;
+        }
+
+        /* Degradê para suavizar os cortes duros (transição seca) nas bordas das imagens */
+        .fade-bottom {
+            -webkit-mask-image: linear-gradient(to bottom, black 0%, black calc(100% - 20px), transparent 100%);
+            mask-image: linear-gradient(to bottom, black 0%, black calc(100% - 20px), transparent 100%);
+        }
+
+        .fade-both {
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0px, black 20px, black calc(100% - 20px), transparent 100%);
+            margin-top: -10px; /* Puxa levemente para cima para as bordas esmaecidas se fundirem */
+        }
+
+        /* Ajuste específico para puxar a fatia dos bônus (6) para cima, matando aquele espaço vazio enorme */
+        .pull-up-bonus {
+            margin-top: -100px; 
+            position: relative;
+            z-index: 10;
+        }
+
+        .slice-image {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* Puxa a primeira imagem para cima para ESCONDER a barra desenhada nela */
+        .slice-hero {
+            margin-top: -11.5%; /* Isso corta exatamente a barra antiga sem afetar o botão de baixo */
+        }
+
+        /* Botões Invisíveis */
+        .invisible-btn-hero {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 10%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .invisible-btn-problem {
+            position: absolute;
+            top: 85%;
+            right: 5%;
+            width: 30%;
+            height: 8%;
+            cursor: pointer;
+            z-index: 10;
+            left: 50%;
+            width: 35%;
+            height: 8%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .invisible-btn-plan2 {
+            position: absolute;
+            top: 77%;
+            left: 50%;
+            width: 35%;
+            height: 8%;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        /* Botão de Compra Final (HTML/CSS) */
+        .final-cta-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px 100px 20px; 
+        }
+
+        .final-buy-btn {
+            background: linear-gradient(180deg, #4cd10e 0%, #318a09 100%);
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 900;
+            font-family: Arial, sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 22px 60px;
+            border-radius: 12px;
+            box-shadow: 0 0 35px rgba(76, 209, 14, 0.4);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid #58f011;
+        }
+
+        .final-buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px rgba(76, 209, 14, 0.8);
+            background: linear-gradient(180deg, #58f011 0%, #38a30a 100%);
+        }
+
+        /* FAQ Section (Sanfona) */
+        .faq-section {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        
+        .faq-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .faq-title span {
+            color: #c9d816; /* Amarelo/Verde neon da imagem */
+        }
+
+        .faq-item {
+            background-color: #030508;
+            border: 1px solid #222;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: #444;
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            font-size: 22px;
+            font-weight: 600;
+            color: #c9d816;
+            cursor: pointer;
+            list-style: none; /* Remove a setinha padrao do details */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 30px;
+            font-weight: 300;
+            color: #555;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .faq-item[open] .faq-question::after {
+            transform: rotate(45deg);
+            color: #c9d816;
+        }
+
+        .faq-answer {
+            padding: 0 30px 30px 30px;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #bbb;
+        }
+        
+        .faq-highlight {
+            color: #c9d816;
+        }
+
+        /* Pricing Section (HTML/CSS) */
+        .pricing-section {
+            max-width: 1200px;
+            margin: 60px auto 20px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .pricing-card {
+            background-color: #05070a;
+            border: 1px solid #333;
+            border-radius: 16px;
+            width: 450px;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .pricing-card.highlight {
+            border: 2px solid #58f011;
+            box-shadow: 0 0 30px rgba(88, 240, 17, 0.15);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #c9d816;
+            color: #000;
+            font-weight: 800;
+            padding: 5px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 20px;
+        }
+
+        .plan-subtitle {
+            font-size: 16px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .plan-title {
+            font-size: 32px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .highlight .plan-title {
+            color: #c9d816;
+            font-size: 36px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            color: #bbb;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.4;
+        }
+
+        .icon-check { color: #58f011; font-weight: bold; }
+        .icon-cross { color: #ff3333; font-weight: bold; }
+
+        .pricing-price-box {
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #222;
+            padding-top: 30px;
+        }
+
+        .strike-price {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .strike-price span {
+            color: #ff3333;
+            text-decoration: line-through;
+        }
+
+        .final-price {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .highlight .final-price {
+            color: #c9d816;
+            font-size: 64px;
+        }
+
+        .price-note {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .btn-pricing {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-sizing: border-box;
+        }
+
+        .btn-secondary {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #444;
+        }
+
+        .btn-primary {
+            background: linear-gradient(180deg, #4cd10e 0%, #318a09 100%);
+            color: #ffffff;
+            box-shadow: 0 0 20px rgba(76, 209, 14, 0.4);
+            border: 2px solid #58f011;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(76, 209, 14, 0.8);
+        }
+
+        .pricing-trust {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            margin-bottom: 60px;
+            color: #aaa;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: Arial, sans-serif;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trust-item span { color: #c9d816; font-size: 20px; }
+
+        @media (max-width: 900px) {
+            .pricing-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card {
+                width: 90%;
+            }
+            .pricing-trust {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        /* Responsividade Básica da Barra */
+        @media (max-width: 900px) {
+            .top-bar {
+                flex-direction: column;
+                border-radius: 20px;
+                padding: 15px;
+                text-align: center;
+            }
+            .divider {
+                width: 80%;
+                height: 1px;
+                margin: 15px 0;
+            }
+            .top-bar-right {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .slice-hero { margin-top: -12.5%; }
+            .slice-container { margin-bottom: 20px; }
+            
+            /* Reduzir o degrade no mobile para não cortar texto */
+            .fade-bottom {
+                -webkit-mask-image: linear-gradient(to bottom, black 0%, black calc(100% - 50px), transparent 100%);
+            }
+            .fade-both {
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 50px, black calc(100% - 50px), transparent 100%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA RECONSTRUÍDA EM HTML/CSS PERFEITA -->
+    <div class="top-bar-wrapper">
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <div class="icon-cronometro"></div>
+                <div class="cronometro-texts">
+                    <span class="c-label">CRONÔMETRO</span>
+                    <span class="c-time timer-live">15:00</span>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+
+            <div class="top-bar-right">
+                O PREÇO DE LANÇAMENTO TERMINA EM BREVE 
+                • <span class="price-green">R$ 67</span> EM VEZ DE <span class="price-red">R$ 297</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Primeira Fatia: Hero Section (Main Image) -->
+    <div class="slice-container fade-bottom">
+        <img src="assets/1.1.3.png" alt="Hero Section" class="slice-image slice-hero">
+        <a href="#" class="invisible-btn-hero" title="Acessar os 300 Workflows"></a>
+    </div>
+
+    <!-- Segunda Fatia: Problem Section -->
+    <div class="slice-container fade-both">
+        <img src="assets/2.png" alt="Problem Section" class="slice-image">
+        <a href="#" class="invisible-btn-problem" title="Conhecer o Sistema"></a>
+    </div>
+
+    <!-- Oitava Fatia: 3 Steps Process -->
+    <div class="slice-container fade-both slice-small">
+        <img src="assets/8.png" alt="Process in 3 steps" class="slice-image">
+    </div>
+
+    <!-- Terceira Fatia: Solution Section -->
+    <div class="slice-container fade-both">
+        <img src="assets/3.png" alt="Features Section" class="slice-image">
+    </div>
+
+    <!-- Quarta Fatia: Target Audience Section -->
+    <div class="slice-container fade-both slice-small">
+        <img src="assets/4.png" alt="Target Audience Section" class="slice-image">
+    </div>
+
+    <!-- Quinta Fatia: Comparison Table Section -->
+    <div class="slice-container fade-both">
+        <img src="assets/5.1.png" alt="Comparison Table Section" class="slice-image">
+    </div>
+
+    <!-- Sexta Fatia: Bonuses Section -->
+    <div class="slice-container fade-both slice-small pull-up-bonus">
+        <img src="assets/6.3.png" alt="Bonuses Section" class="slice-image">
+    </div>
+
+    <!-- Sétima Fatia: Pricing Section (HTML) -->
+    <div class="pricing-section">
+        <!-- Plano Iniciante -->
+        <div class="pricing-card">
+            <div class="pricing-header">
+                <div class="plan-subtitle">Plano</div>
+                <div class="plan-title">Iniciante</div>
+            </div>
+            <ul class="pricing-features">
+                <li><span class="icon-check">✓</span> 50 Workflows Básicos ComfyUI (Apenas Fotos)</li>
+                <li><span class="icon-cross">✕</span> 250 Workflows Avançados (Vídeos, Vlogs, Cenários Complexos)</li>
+                <li><span class="icon-cross">✕</span> Configuração de Face-Lock para Vídeos Virais</li>
+                <li><span class="icon-cross">✕</span> BÔNUS 1: Estúdio Portátil na Nuvem (Tutorial)</li>
+                <li><span class="icon-cross">✕</span> BÔNUS 2: O Mapa das Publis e Parcerias</li>
+                <li><span class="icon-cross">✕</span> BÔNUS 3: O Cofre de Modelos (Checkpoints)</li>
+                <li><span class="icon-cross">✕</span> BÔNUS 4: Playbook Multicanal</li>
+                <li><span class="icon-cross">✕</span> Licença comercial + atualizações vitalícias</li>
+                <li><span class="icon-cross">✕</span> Garantia incondicional de 7 dias</li>
+            </ul>
+            <div class="pricing-price-box">
+                <div class="final-price">R$ 47,90</div>
+                <div class="price-note">&nbsp;</div>
+                <a href="#" class="btn-pricing btn-secondary">Comprar Plano Iniciante</a>
+            </div>
+        </div>
+
+        <!-- Plano Master -->
+        <div class="pricing-card highlight">
+            <div class="pricing-badge">★ MAIS ESCOLHIDO ★</div>
+            <div class="pricing-header">
+                <div class="plan-subtitle">O Império Completo:</div>
+                <div class="plan-title">300 Workflows Master</div>
+            </div>
+            <ul class="pricing-features">
+                <li><span class="icon-check">✓</span> A Biblioteca Completa: 300 Workflows ComfyUI (Fotos e Vídeos)</li>
+                <li><span class="icon-check">✓</span> Estruturas validadas para TikTok, YouTube, Publis e VIP</li>
+                <li><span class="icon-check">✓</span> Configuração avançada de Face-Lock para Vídeos e Vlogs</li>
+                <li><span class="icon-check">✓</span> BÔNUS 1: Estúdio Portátil na Nuvem (Rode de qualquer PC)</li>
+                <li><span class="icon-check">✓</span> BÔNUS 2: O Mapa das Publis e Parcerias (Atraia marcas)</li>
+                <li><span class="icon-check">✓</span> BÔNUS 3: O Cofre de Modelos (Checkpoints de alta fidelidade)</li>
+                <li><span class="icon-check">✓</span> BÔNUS 4: Playbook Multicanal (Estratégia de tráfego)</li>
+                <li><span class="icon-check">✓</span> Licença comercial + atualizações vitalícias</li>
+                <li><span class="icon-check">✓</span> Garantia incondicional de 7 dias</li>
+                <li><span class="icon-check">✓</span> Suporte prioritário</li>
+            </ul>
+            <div class="pricing-price-box">
+                <div class="strike-price">de <span>R$ 297,00</span></div>
+                <div class="final-price">R$ 67,00</div>
+                <div class="price-note">(PAGAMENTO ÚNICO)</div>
+                <a href="#" class="btn-pricing btn-primary">Quero os 300 Workflows Agora ></a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="pricing-trust">
+        <div class="trust-item"><span>🛡️</span> Compra 100% Segura</div>
+        <div class="trust-item"><span>⚡</span> Acesso Imediato</div>
+        <div class="trust-item"><span>🏅</span> Satisfação Garantida</div>
+    </div>
+
+    <!-- Décima Fatia: Guarantee Section (11.png) -->
+    <div class="slice-container fade-both">
+        <img src="assets/11.png" alt="Guarantee Section" class="slice-image">
+    </div>
+
+    <!-- Décima Primeira Fatia: FAQ Section (Sanfona HTML) -->
+    <div class="faq-section">
+        <div class="faq-title">PERGUNTAS FREQUENTES <span>(FAQ)</span></div>
+
+        <details class="faq-item">
+            <summary class="faq-question">Esses 300 workflows servem tanto para vídeos curtos quanto para fotos?</summary>
+            <div class="faq-answer">
+                Sim! A biblioteca é separada por categorias. Você terá arquivos específicos para fotos com <span class="faq-highlight">qualidade de cinema</span> (Publis, Instagram) e arquivos desenhados especificamente para manter a estabilidade em vídeos curtos e vlogs.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">Meu computador é antigo e trava. Preciso de um PC Gamer super potente?</summary>
+            <div class="faq-answer">
+                Não! Dentro do pacote bônus, eu ensino o segredo para <span class="faq-highlight">rodar toda essa operação na nuvem</span>. O processamento pesado não acontece no seu PC. Você pode operar a sua agência usando um notebook comum.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">Nunca abri o ComfyUI na vida. Vou conseguir usar?</summary>
+            <div class="faq-answer">
+                É exatamente por isso que você precisa de arquivos prontos. Eu já quebrei a cabeça conectando todos os nós complexos e corrigindo as falhas. Sua única função é arrastar o arquivo que você escolheu para a tela e apertar o botão <span class="faq-highlight">"Gerar"</span>.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">Vou ter que pagar mensalidades ou comprar "Tokens" para usar as IAs?</summary>
+            <div class="faq-answer">
+                Nunca mais. O ComfyUI é open-source e gratuito. Você pode gerar milhares de vídeos e fotos sem pagar nenhum <span class="faq-highlight">"pedágio"</span> para IAs comerciais.
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary class="faq-question">Então qual é o meu único custo?</summary>
+            <div class="faq-answer">
+                Se você rodar na nuvem (o que ensino no bônus), você aluga o servidor apenas pelas horas que usar (custa centavos ou poucos dólares a hora). Você entra, gera dezenas de conteúdos para a semana inteira, desliga o servidor e <span class="faq-highlight">não paga mais nada</span>.
+            </div>
+        </details>
+    </div>
+
+    <!-- Nona Fatia: Testimonials (10.png) -->
+    <div class="slice-container fade-both">
+        <img src="assets/10.png" alt="Testimonials Section" class="slice-image">
+    </div>
+
+    <!-- Botão de Compra Final em HTML -->
+    <div class="final-cta-container">
+        <a href="#" class="final-buy-btn">QUERO OS 300 WORKFLOWS AGORA</a>
+    </div>
+
+    <script>
+        // Lógica do Contador
+        function startTimer(durationInMinutes) {
+            let timeRemaining = durationInMinutes * 60;
+            const timers = document.querySelectorAll('.timer-live');
+
+            const interval = setInterval(function () {
+                let minutes = parseInt((timeRemaining % 3600) / 60, 10);
+                let seconds = parseInt(timeRemaining % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                const timeString = minutes + ":" + seconds;
+                
+                timers.forEach(t => t.textContent = timeString);
+
+                if (--timeRemaining < 0) {
+                    timeRemaining = 0;
+                    clearInterval(interval);
+                    timers.forEach(t => t.textContent = "00:00");
+                }
+            }, 1000);
+        }
+
+        startTimer(15);
+    </script>
+</body>
+</html>
