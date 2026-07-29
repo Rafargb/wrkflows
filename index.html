@@ -654,6 +654,225 @@
                 display: block;
             }
         }
+        }
+
+        /* Seção de Garantia em HTML */
+        .guarantee-section {
+            width: 100%;
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .guarantee-card {
+            background: linear-gradient(145deg, #0f1115 0%, #060709 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+        .guarantee-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .guarantee-text-col {
+            flex: 1;
+            text-align: left;
+        }
+        .guarantee-badge-col {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .g-subtitle {
+            font-size: 26px;
+            color: #fff;
+            font-weight: 800;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .g-title {
+            font-size: 70px;
+            color: #c9d816;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(201, 216, 22, 0.2);
+        }
+        .g-divider {
+            height: 2px;
+            width: 100px;
+            background: linear-gradient(90deg, #c9d816, transparent);
+            margin-bottom: 30px;
+        }
+        .g-paragraph {
+            font-size: 18px;
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .g-highlight {
+            color: #c9d816;
+            font-weight: bold;
+        }
+        .g-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #fff;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .g-check svg {
+            stroke: #c9d816;
+        }
+        /* CSS Badge */
+        .css-badge {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: #000;
+            border: 4px dashed #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 50px rgba(201, 216, 22, 0.15), inset 0 0 30px rgba(201, 216, 22, 0.05);
+        }
+        .css-badge::before {
+            content: '';
+            position: absolute;
+            top: -10px; left: -10px; right: -10px; bottom: -10px;
+            border-radius: 50%;
+            border: 2px solid rgba(201, 216, 22, 0.3);
+            z-index: 0;
+        }
+        .css-badge-inner {
+            z-index: 1;
+            text-align: center;
+            width: 100%;
+        }
+        .badge-text-top {
+            color: #fff;
+            font-size: 18px;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+        .badge-number {
+            font-size: 100px;
+            color: #c9d816;
+            font-weight: 900;
+            line-height: 0.9;
+            text-shadow: 0 0 20px rgba(201, 216, 22, 0.4);
+            margin: 5px 0;
+        }
+        .badge-text-mid {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        .badge-text-bottom {
+            color: #fff;
+            font-size: 16px;
+            letter-spacing: 3px;
+            margin-top: 5px;
+        }
+        .css-badge-ribbon {
+            position: absolute;
+            bottom: -20px;
+            background: #c9d816;
+            color: #000;
+            padding: 10px 30px;
+            font-weight: 900;
+            font-size: 14px;
+            text-transform: uppercase;
+            line-height: 1.4;
+            text-align: center;
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            white-space: nowrap;
+            clip-path: polygon(15px 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 15px 100%, 0% 50%);
+        }
+        .css-badge-ribbon span {
+            font-size: 20px;
+        }
+        /* Bottom Features */
+        .guarantee-features {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .g-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .g-feature svg {
+            width: 32px;
+            height: 32px;
+            stroke: #c9d816;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .g-feature-text {
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+            line-height: 1.3;
+            letter-spacing: 0.5px;
+        }
+
+        /* Mobile Adjustments for Guarantee */
+        @media (max-width: 900px) {
+            .guarantee-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            .guarantee-text-col {
+                text-align: center;
+            }
+            .g-divider {
+                margin: 0 auto 30px auto;
+            }
+            .g-check {
+                justify-content: center;
+            }
+            .guarantee-features {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+                padding-left: 20px;
+            }
+            .guarantee-card {
+                padding: 40px 20px;
+            }
+            .g-title {
+                font-size: 50px;
+            }
+            .g-subtitle {
+                font-size: 22px;
+            }
+            .css-badge {
+                transform: scale(0.85);
+                margin: -20px 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -788,9 +1007,56 @@
         <div class="trust-item"><span>🏅</span> Satisfação Garantida</div>
     </div>
 
-    <!-- Décima Fatia: Guarantee Section (11.png) -->
-    <div class="slice-container fade-both">
-        <img src="assets/11.png" alt="Guarantee Section" class="slice-image">
+    <!-- Nova Seção de Garantia (Substitui 11.png) -->
+    <div class="guarantee-section">
+        <div class="guarantee-card">
+            <div class="guarantee-top">
+                <div class="guarantee-text-col">
+                    <div class="g-subtitle">GARANTIA INCONDICIONAL</div>
+                    <div class="g-title">DE 7 DIAS.</div>
+                    <div class="g-divider"></div>
+                    <p class="g-paragraph">Baixe o pacote, teste os workflows na nuvem ou no seu PC, gere seus primeiros vídeos virais e fotos perfeitas.</p>
+                    <p class="g-paragraph">Se você não achar que tem nas mãos o <span class="g-highlight">maior arsenal de criação de IA do mercado, eu devolvo 100% do seu dinheiro.</span></p>
+                    <div class="g-check">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        Sem burocracia.
+                    </div>
+                </div>
+                <div class="guarantee-badge-col">
+                    <div class="css-badge">
+                        <div class="css-badge-inner">
+                            <div class="badge-text-top">GARANTIA</div>
+                            <div class="badge-number">7</div>
+                            <div class="badge-text-mid">DIAS</div>
+                            <div class="badge-text-bottom">INCONDICIONAL</div>
+                        </div>
+                        <div class="css-badge-ribbon">OU SEU DINHEIRO DE VOLTA<br><span>★ 100% ★</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="guarantee-features">
+                <div class="g-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                    <div class="g-feature-text">TESTE NA NUVEM<br>OU NO SEU PC</div>
+                </div>
+                <div class="g-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                    <div class="g-feature-text">GERE VÍDEOS<br>VIRAIS</div>
+                </div>
+                <div class="g-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                    <div class="g-feature-text">FOTOS<br>PERFEITAS</div>
+                </div>
+                <div class="g-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                    <div class="g-feature-text">DEVOLUÇÃO<br>100% GARANTIDA</div>
+                </div>
+                <div class="g-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
+                    <div class="g-feature-text">SEM<br>BUROCRACIA</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Décima Primeira Fatia: FAQ Section (Sanfona HTML) -->
