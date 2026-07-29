@@ -1059,6 +1059,134 @@
                 gap: 25px;
             }
         }
+
+        /* Bonus HTML Section */
+        .bonus-section {
+            width: 100%;
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .bonus-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .b-gift-icon {
+            width: 60px; height: 60px; border-radius: 50%;
+            border: 2px solid #c9d816;
+            display: flex; justify-content: center; align-items: center;
+            margin: 0 auto 30px auto;
+        }
+        .b-gift-icon svg { stroke: #c9d816; width: 30px; height: 30px; fill: none; stroke-width: 1.5; }
+        .b-title {
+            font-size: 34px; color: #fff; font-weight: 900; text-transform: uppercase;
+            line-height: 1.2; margin-bottom: 15px;
+        }
+        .b-title .highlight { color: #c9d816; }
+        .b-subtitle {
+            font-size: 18px; color: #fff; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .b-subtitle .highlight { color: #c9d816; }
+        
+        .b-list {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+        }
+        .b-item {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .b-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .b-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .b-image img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .b-content {
+            flex-grow: 1;
+        }
+        .b-item-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .b-item-icon {
+            background: rgba(201, 216, 22, 0.1);
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid rgba(201, 216, 22, 0.3);
+            display: flex;
+        }
+        .b-item-icon svg { width: 24px; height: 24px; stroke: #c9d816; fill: none; stroke-width: 2; }
+        .b-item-title-col {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .b-item-title {
+            font-size: 24px; color: #fff; font-weight: 900; text-transform: uppercase; line-height: 1.2;
+        }
+        .b-item-value {
+            font-size: 18px; color: #a0a0a0; font-weight: 600;
+        }
+        .b-item-value .highlight { color: #c9d816; font-weight: bold; }
+        .b-item-text {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        .b-item-text .highlight { color: #c9d816; font-weight: bold; }
+        
+        .b-footer {
+            text-align: center;
+            margin-top: 60px;
+        }
+        .b-footer svg {
+            width: 40px; height: 40px; stroke: #c9d816; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+            margin-bottom: 20px;
+        }
+        .b-footer-val {
+            font-size: 14px; color: #a0a0a0; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 10px;
+        }
+        .b-footer-cta {
+            font-size: 24px; color: #c9d816; font-weight: 900; text-transform: uppercase;
+        }
+        
+        @media (max-width: 900px) {
+            .b-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            .b-item-header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .b-title {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1128,9 +1256,93 @@
         <img src="assets/5.1.png" alt="Comparison Table Section" class="slice-image">
     </div>
 
-    <!-- Sexta Fatia: Bonuses Section -->
-    <div class="slice-container fade-both slice-small pull-up-bonus">
-        <img src="assets/6.3.png" alt="Bonuses Section" class="slice-image">
+    <!-- Nova Seção de Bônus em HTML (Substitui 6.3.png) -->
+    <div class="bonus-section">
+        <div class="bonus-header">
+            <div class="b-gift-icon">
+                <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <div class="b-title">GARANTA OS SEUS<br><span class="highlight">300 WORKFLOWS</span> HOJE</div>
+            <div class="b-subtitle">E LEVE MEU KIT SECRETO DE <span class="highlight">GRAÇA:</span></div>
+            <div class="testi-divider"></div>
+        </div>
+        
+        <div class="b-list">
+            <!-- Bônus 1 -->
+            <div class="b-item">
+                <div class="b-image"><img src="assets/b1.png" alt="Bônus 1"></div>
+                <div class="b-content">
+                    <div class="b-item-header">
+                        <div class="b-item-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                        </div>
+                        <div class="b-item-title-col">
+                            <div class="b-item-title">BÔNUS 1: O ESTÚDIO<br>PORTÁTIL NA NUVEM</div>
+                            <div class="b-item-value">($27 USD -> <span class="highlight">GRÁTIS)</span></div>
+                        </div>
+                    </div>
+                    <div class="b-item-text">Não tem um PC forte? Sem problemas. O tutorial passo a passo para rodar todos os seus 300 workflows direto na nuvem, pagando <span class="highlight">centavos por hora.</span> Opere seu império de qualquer notebook.</div>
+                </div>
+            </div>
+
+            <!-- Bônus 2 -->
+            <div class="b-item">
+                <div class="b-image"><img src="assets/b2.png" alt="Bônus 2"></div>
+                <div class="b-content">
+                    <div class="b-item-header">
+                        <div class="b-item-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                        </div>
+                        <div class="b-item-title-col">
+                            <div class="b-item-title">BÔNUS 2: O MAPA<br>DAS PUBLIS</div>
+                            <div class="b-item-value">($19 USD -> <span class="highlight">GRÁTIS)</span></div>
+                        </div>
+                    </div>
+                    <div class="b-item-text">Como abordar marcas, criar um media kit para sua modelo de IA e <span class="highlight">fechar contratos de publicidade</span> no Instagram, mesmo que ninguém saiba que ela não existe.</div>
+                </div>
+            </div>
+
+            <!-- Bônus 3 -->
+            <div class="b-item">
+                <div class="b-image"><img src="assets/b3.png" alt="Bônus 3"></div>
+                <div class="b-content">
+                    <div class="b-item-header">
+                        <div class="b-item-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                        </div>
+                        <div class="b-item-title-col">
+                            <div class="b-item-title">BÔNUS 3: O COFRE<br>DE MODELOS (CHECKPOINTS)</div>
+                            <div class="b-item-value">($19 USD -> <span class="highlight">GRÁTIS)</span></div>
+                        </div>
+                    </div>
+                    <div class="b-item-text">Os links diretos e seguros para baixar os motores de imagem exatos que uso. Do realismo fotográfico extremo à estética de anime, para <span class="highlight">diferentes nichos.</span></div>
+                </div>
+            </div>
+
+            <!-- Bônus 4 -->
+            <div class="b-item">
+                <div class="b-image"><img src="assets/b4.png" alt="Bônus 4"></div>
+                <div class="b-content">
+                    <div class="b-item-header">
+                        <div class="b-item-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                        </div>
+                        <div class="b-item-title-col">
+                            <div class="b-item-title">BÔNUS 4: PLAYBOOK<br>MULTICANAL</div>
+                            <div class="b-item-value">($29 USD -> <span class="highlight">GRÁTIS)</span></div>
+                        </div>
+                    </div>
+                    <div class="b-item-text">A estratégia exata para conectar o tráfego orgânico do TikTok e YouTube e jogar uma avalanche de clientes para <span class="highlight">funis de alta conversão.</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-footer">
+            <svg viewBox="0 0 24 24"><path d="M2 22h20M2 17l4-10 4 5 2-8 2 8 4-5 4 10z"/></svg>
+            <div class="b-footer-val">4 BÔNUS EXCLUSIVOS. UM VALOR TOTAL DE $94 USD.</div>
+            <div class="b-footer-cta">HOJE, 100% GRÁTIS PARA VOCÊ.</div>
+            <div class="testi-divider"></div>
+        </div>
     </div>
 
     <!-- Sétima Fatia: Pricing Section (HTML) -->
