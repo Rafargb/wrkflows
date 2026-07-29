@@ -521,7 +521,64 @@
         }
 
         .hero-mobile {
-            display: none;
+            padding: 80px 20px 40px 20px;
+            background-color: #030508;
+            text-align: center;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero-mobile-badge {
+            display: inline-block;
+            background: rgba(201, 216, 22, 0.1);
+            color: #c9d816;
+            border: 1px solid #c9d816;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 15px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .hero-mobile-title {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+        .hero-mobile-title .highlight {
+            color: #c9d816;
+        }
+        .hero-mobile-subtitle {
+            font-size: 20px;
+            color: #dddddd;
+            line-height: 1.6;
+            margin: 0 auto 50px auto;
+            text-align: center !important;
+            max-width: 800px;
+        }
+        .hero-mobile-mockup {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 50px auto;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-mobile-mockup img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+        .hero-mobile-btn {
+            font-size: 24px !important;
+            padding: 24px 40px !important;
+            display: inline-block;
+            margin-top: 20px;
         }
 
         /* Responsividade Básica da Barra */
@@ -560,57 +617,26 @@
             .fade-both {
                 -webkit-mask-image: linear-gradient(to bottom, transparent 0px, black 50px, black calc(100% - 50px), transparent 100%);
             }
-            .hero-desktop {
-                display: none !important;
-            }
             .hero-mobile {
-                display: block;
                 padding: 40px 20px;
-                background-color: #030508;
-                text-align: center;
-                color: #ffffff;
-                font-family: Arial, sans-serif;
             }
             .hero-mobile-badge {
-                display: inline-block;
-                background: rgba(201, 216, 22, 0.1);
-                color: #c9d816;
-                border: 1px solid #c9d816;
-                padding: 6px 18px;
-                border-radius: 50px;
-                font-weight: 800;
                 font-size: 13px;
+                padding: 6px 18px;
                 margin-bottom: 25px;
-                letter-spacing: 1px;
-                text-transform: uppercase;
             }
             .hero-mobile-title {
-                font-size: 25px;
-                font-weight: 800;
-                line-height: 1.3;
+                font-size: 26px;
                 margin-bottom: 20px;
             }
-            .hero-mobile-title .highlight {
-                color: #c9d816;
-            }
             .hero-mobile-subtitle {
-                font-size: 18px;
-                color: #dddddd;
-                line-height: 1.5;
-                margin-bottom: 40px;
+                font-size: 16px;
+                text-align: left !important;
+                margin-bottom: 30px;
             }
             .hero-mobile-mockup {
-                width: 100%;
                 max-width: 400px;
-                margin: 0 auto 40px auto;
-                display: flex;
-                justify-content: center;
-            }
-            .hero-mobile-mockup img {
-                max-width: 100%;
-                height: auto;
-                object-fit: contain;
-                display: block;
+                margin-bottom: 30px;
             }
             .hero-mobile-btn {
                 font-size: 20px !important;
@@ -618,6 +644,7 @@
                 width: 100%;
                 box-sizing: border-box;
                 display: block;
+            }
         }
     </style>
 </head>
@@ -644,13 +671,7 @@
         </div>
     </div>
 
-    <!-- Primeira Fatia: Hero Section (Desktop Image) -->
-    <div class="slice-container fade-bottom hero-desktop">
-        <img src="assets/1.1.3.png" alt="Hero Section" class="slice-image slice-hero">
-        <a href="#" class="invisible-btn-hero" title="Acessar os 300 Workflows"></a>
-    </div>
-
-    <!-- Primeira Fatia: Hero Section (Mobile HTML) -->
+    <!-- Primeira Fatia: Hero Section (HTML Global) -->
     <div class="hero-mobile">
         <div class="hero-mobile-badge">⚡ 300 WORKFLOWS PRONTOS PARA COMFYUI</div>
         <h1 class="hero-mobile-title">Construa um Império com Influenciadoras de IA e Monetize em Todas as Redes<br><br><span class="highlight">O Único Pacote com 300 Workflows Prontos.</span></h1>
