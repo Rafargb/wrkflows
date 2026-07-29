@@ -109,6 +109,28 @@
             margin-left: 10px;
         }
 
+        .top-bar-alert {
+            color: #ff2a2a;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        
+        .timer-badge {
+            background: #A3FF00;
+            color: #000 !important;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 900 !important;
+            letter-spacing: 1px;
+        }
+        
+        .price-muted {
+            font-size: 12px;
+            color: #888;
+            text-transform: lowercase;
+            margin: 0 5px;
+        }
+
         .slice-container {
             width: 100%;
             max-width: 1536px;
@@ -523,8 +545,11 @@
                 font-size: 12px;
                 line-height: 1.4;
             }
-            .price-green { font-size: 14px; margin: 0; }
-            .price-red { font-size: 12px; margin-left: 5px; }
+            .price-green { font-size: 15px; margin: 0; }
+            .price-red { font-size: 12px; margin: 0; }
+            .top-bar-alert { font-size: 13px; }
+            .timer-badge { font-size: 13px; padding: 2px 6px; }
+            .price-muted { font-size: 10px; margin: 0 3px; }
             .slice-hero { margin-top: -12.5%; }
             .slice-container { margin-bottom: 20px; }
             
@@ -612,9 +637,10 @@
             
             <div class="divider"></div>
 
-            <div class="top-bar-right">
-                O PREÇO DE LANÇAMENTO TERMINA EM <span class="timer-live" style="color: #c9d816; font-weight: bold;">15:00</span> 
-                • <span class="price-green">R$ 67</span> EM VEZ DE <span class="price-red">R$ 297</span>
+            <div class="top-bar-right" style="text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">
+                <span class="top-bar-alert">🔥 ÚLTIMA CHANCE:</span> ACABA EM 
+                <span class="timer-live timer-badge">15:00</span> 
+                <span class="price-green">R$ 67</span> <span class="price-muted">em vez de</span> <span class="price-red">R$ 297</span>
             </div>
         </div>
     </div>
