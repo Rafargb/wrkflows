@@ -512,17 +512,18 @@
                 text-align: center;
                 gap: 5px;
             }
-            .top-bar-left { gap: 8px; }
-            .c-time { font-size: 18px; margin-top: 0; }
-            .c-label { font-size: 9px; }
-            .icon-cronometro { width: 22px; height: 22px; }
+            .top-bar-left { display: none; } /* Oculta ícone e contador duplicado no celular */
             .divider { display: none; }
             .top-bar-right {
-                flex-direction: column;
-                gap: 2px;
-                font-size: 11px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 6px;
+                font-size: 12px;
+                line-height: 1.4;
             }
-            .price-green { font-size: 14px; margin: 0 5px; }
+            .price-green { font-size: 14px; margin: 0; }
             .price-red { font-size: 12px; margin-left: 5px; }
             .slice-hero { margin-top: -12.5%; }
             .slice-container { margin-bottom: 20px; }
