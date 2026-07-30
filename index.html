@@ -1252,13 +1252,21 @@
         .c-title .highlight { color: #c9d816; font-weight: bold; }
         
         @media (max-width: 900px) {
-            .comp-header { display: none; }
-            .comp-row { flex-direction: column; padding: 20px 0; border-bottom: 2px solid rgba(255,255,255,0.05); }
-            .comp-col-1, .comp-col-2, .comp-col-3 { border: none; padding: 12px 20px; width: 100%; box-sizing: border-box; }
-            .comp-col-1 { justify-content: center; margin-bottom: 10px; background: rgba(255,255,255,0.02); }
-            .comp-col-2::before { content: "AMADORES ❌"; font-size: 11px; color: #ff3b30; font-weight: bold; width: 110px; flex-shrink: 0; }
-            .comp-col-3::before { content: "300 WORKFLOWS ✅"; font-size: 11px; color: #c9d816; font-weight: bold; width: 130px; flex-shrink: 0; }
-            .comp-title { font-size: 32px; }
+            .comp-row { flex-wrap: wrap; padding: 0; }
+            .comp-header { display: flex; font-size: 11px; }
+            .comp-header .comp-col-1 { display: none; }
+            .comp-header .comp-col-2, .comp-header .comp-col-3 { flex: 0 0 50%; max-width: 50%; padding: 15px 10px; border: none; align-items: center; justify-content: center; text-align: center; flex-direction: column; gap: 5px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+            .comp-header .comp-col-2 { border-right: 1px solid rgba(255, 255, 255, 0.05); }
+            .comp-header .icon-check, .comp-header .icon-x { margin-left: 0; margin-top: 5px; }
+
+            .comp-col-1 { flex: 0 0 100%; max-width: 100%; background: rgba(255,255,255,0.02); padding: 15px 20px; justify-content: center; border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.05); margin-bottom: 0; }
+            .comp-col-2 { flex: 0 0 50%; max-width: 50%; padding: 20px 10px; flex-direction: column; text-align: center; gap: 10px; border-right: 1px solid rgba(255,255,255,0.05); border-bottom: none; }
+            .comp-col-3 { flex: 0 0 50%; max-width: 50%; padding: 20px 10px; flex-direction: column; text-align: center; gap: 10px; border: none; }
+            
+            .c-title { font-size: 14px; text-align: center; }
+            .comp-col-2 .c-title, .comp-col-3 .c-title { font-size: 13px; line-height: 1.4; }
+            
+            .comp-title { font-size: 28px; }
         }
     </style>
 </head>
