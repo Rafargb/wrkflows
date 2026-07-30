@@ -1346,6 +1346,88 @@
             .steps-footer { flex-direction: column; align-items: center; gap: 25px; text-align: center; padding: 30px 20px; }
             .sf-item { flex-direction: column; gap: 12px; }
         }
+        /* Target Audience HTML Section */
+        .target-section {
+            width: 100%; max-width: 1100px; margin: 100px auto; padding: 0 20px;
+            box-sizing: border-box; display: flex; flex-direction: column; align-items: center;
+        }
+        .target-title {
+            font-size: 46px; color: #fff; font-weight: 900; text-transform: uppercase;
+            text-align: center; margin-bottom: 5px; letter-spacing: -1px; line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .target-title .highlight { color: #c9d816; font-size: 60px; display: block; }
+        
+        .target-divider {
+            width: 180px; height: 2px; background: linear-gradient(90deg, transparent, #c9d816, transparent);
+            margin: 20px auto 50px auto; box-shadow: 0 0 15px rgba(201, 216, 22, 0.5);
+        }
+        
+        .target-grid {
+            display: flex; flex-direction: column; gap: 30px; width: 100%;
+        }
+        
+        .target-card {
+            background: linear-gradient(180deg, #0f1115 0%, #060709 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;
+            display: flex; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+            align-items: stretch;
+        }
+        .target-card.reverse { flex-direction: row-reverse; }
+        
+        .tc-image {
+            flex: 0 0 50%; max-width: 50%; display: flex; background: #000;
+        }
+        .tc-image img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .tc-content {
+            flex: 0 0 50%; max-width: 50%; padding: 40px; display: flex; flex-direction: column;
+            justify-content: center; box-sizing: border-box;
+        }
+        .tc-header {
+            display: flex; align-items: center; gap: 15px; margin-bottom: 20px;
+        }
+        .tc-icon {
+            width: 55px; height: 55px; border: 1px solid #c9d816; border-radius: 12px;
+            display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+            background: rgba(201, 216, 22, 0.05);
+        }
+        .tc-icon svg { width: 28px; height: 28px; stroke: #c9d816; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .tc-title-box { display: flex; flex-direction: column; }
+        .tc-title-box .p1 { color: #fff; font-size: 22px; font-weight: 700; line-height: 1.2; }
+        .tc-title-box .p2 { color: #c9d816; font-size: 24px; font-weight: 800; line-height: 1.2; }
+        
+        .tc-desc {
+            color: #ccc; font-size: 16px; line-height: 1.6;
+        }
+        .tc-desc .highlight { color: #c9d816; font-weight: bold; }
+        
+        .target-footer {
+            margin-top: 40px; width: 100%; background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 25px 40px;
+            display: flex; align-items: center; justify-content: center; gap: 20px;
+            box-sizing: border-box;
+        }
+        .target-footer .tf-icon {
+            width: 44px; height: 44px; border: 1px solid #c9d816; border-radius: 8px;
+            display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+        }
+        .target-footer .tf-icon svg { width: 24px; height: 24px; stroke: #c9d816; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .target-footer .tf-text {
+            color: #ccc; font-size: 17px; line-height: 1.5;
+        }
+        .target-footer .tf-text .highlight { color: #c9d816; font-weight: bold; }
+        
+        @media (max-width: 900px) {
+            .target-card, .target-card.reverse { flex-direction: column; }
+            .tc-image, .tc-content { flex: 0 0 100%; max-width: 100%; }
+            .tc-image { height: 250px; }
+            .tc-content { padding: 30px 20px; }
+            .target-title { font-size: 32px; }
+            .target-title .highlight { font-size: 42px; }
+            .target-footer { flex-direction: column; text-align: center; padding: 25px 20px; gap: 15px; }
+            .tc-title-box .p1, .tc-title-box .p2 { font-size: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -1461,9 +1543,77 @@
         <img src="assets/3.png" alt="Features Section" class="slice-image">
     </div>
 
-    <!-- Quarta Fatia: Target Audience Section -->
-    <div class="slice-container fade-both slice-small">
-        <img src="assets/4.png" alt="Target Audience Section" class="slice-image">
+    <!-- Nova Seção: ESTE ARSENAL É PARA VOCÊ SE: -->
+    <div class="target-section">
+        <div class="target-title">ESTE ARSENAL É PARA<br><span class="highlight">VOCÊ SE:</span></div>
+        <div class="target-divider"></div>
+        
+        <div class="target-grid">
+            <!-- Card 1 -->
+            <div class="target-card">
+                <div class="tc-image"><img src="assets/t1.png" alt="Visionário"></div>
+                <div class="tc-content">
+                    <div class="tc-header">
+                        <div class="tc-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A6 6 0 1 0 7.5 11.5c.76.76 1.23 1.52 1.41 2.5z"/></svg></div>
+                        <div class="tc-title-box">
+                            <span class="p1">Você é</span>
+                            <span class="p2">Visionário:</span>
+                        </div>
+                    </div>
+                    <div class="tc-desc">Entende que o dinheiro não está apenas em vender fotos, mas em criar uma marca pessoal de IA que fatura com visualizações, parcerias e assinaturas.</div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="target-card reverse">
+                <div class="tc-image"><img src="assets/t2.png" alt="Criador de Conteúdo"></div>
+                <div class="tc-content">
+                    <div class="tc-header">
+                        <div class="tc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"/><path d="M10 9l5 3-5 3z"/></svg></div>
+                        <div class="tc-title-box">
+                            <span class="p1">Você é</span>
+                            <span class="p2">Criador de Conteúdo:</span>
+                        </div>
+                    </div>
+                    <div class="tc-desc">Quer multiplicar seus canais no YouTube e TikTok sem precisar gravar o próprio rosto ou contratar atores caros.</div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="target-card">
+                <div class="tc-image"><img src="assets/t3.png" alt="Agência"></div>
+                <div class="tc-content">
+                    <div class="tc-header">
+                        <div class="tc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                        <div class="tc-title-box">
+                            <span class="p1">Você Tem</span>
+                            <span class="p2">Agência:</span>
+                        </div>
+                    </div>
+                    <div class="tc-desc">Precisa de variedade absurda. Com <span class="highlight">300 workflows</span>, você tem cenários e estilos suficientes para dezenas de modelos diferentes operando simultaneamente.</div>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="target-card reverse">
+                <div class="tc-image"><img src="assets/t4.png" alt="Odeia a Parte Técnica"></div>
+                <div class="tc-content">
+                    <div class="tc-header">
+                        <div class="tc-icon"><svg viewBox="0 0 24 24"><path d="M13.5 2.5a8.7 8.7 0 0 1 8 8c0 3.3-1.6 5.8-3.4 7.6L14 22l-2-2m-1-1-6.1 4.1L5 20c-1.8-1.8-4.3-4.3-4.3-7.6a8.7 8.7 0 0 1 8-8l4.1-4.1z"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+                        <div class="tc-title-box">
+                            <span class="p1">Você Odeia</span>
+                            <span class="p2">a Parte Técnica:</span>
+                        </div>
+                    </div>
+                    <div class="tc-desc">Quer apenas arrastar o arquivo <span class="highlight">.json</span> focado no seu objetivo do dia, digitar o texto e ver a mágica acontecer.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="target-footer">
+            <div class="tf-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <div class="tf-text">Se você se identificou com pelo menos um desses pontos,<br>o Pack 300 Workflows Master foi feito para <span class="highlight">mudar o seu jogo.</span></div>
+        </div>
     </div>
 
     <!-- Nova Seção: O FIM DA DOR DE CABEÇA TÉCNICA -->
