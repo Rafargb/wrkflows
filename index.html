@@ -1268,6 +1268,84 @@
             
             .comp-title { font-size: 28px; }
         }
+        /* 3 Steps HTML Section */
+        .steps-section {
+            width: 100%; max-width: 1100px; margin: 100px auto; padding: 0 20px;
+            box-sizing: border-box; display: flex; flex-direction: column; align-items: center;
+        }
+        .steps-title {
+            font-size: 44px; color: #fff; font-weight: 900; text-transform: uppercase;
+            text-align: center; margin-bottom: 10px; letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .steps-title .highlight { color: #c9d816; }
+        .steps-subtitle {
+            font-size: 18px; color: #ccc; font-weight: 500; text-align: center;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px;
+        }
+        .steps-divider {
+            width: 150px; height: 2px; background: linear-gradient(90deg, transparent, #c9d816, transparent);
+            margin: 0 auto 50px auto; box-shadow: 0 0 10px rgba(201, 216, 22, 0.5);
+        }
+        
+        .steps-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; margin-bottom: 40px;
+        }
+        
+        .step-card {
+            background: linear-gradient(180deg, #0f1115 0%, #060709 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;
+            padding: 40px 30px 30px 30px; display: flex; flex-direction: column; align-items: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5); position: relative;
+        }
+        .step-number {
+            position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+            width: 40px; height: 40px; background: #060709; border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            font-size: 18px; font-weight: 900; color: #c9d816;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .step-icon {
+            width: 50px; height: 50px; margin-bottom: 25px; display: flex; justify-content: center; align-items: center;
+        }
+        .step-icon svg { width: 100%; height: 100%; stroke: #c9d816; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        
+        .step-title {
+            font-size: 20px; color: #fff; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 20px; text-align: center;
+        }
+        .step-desc {
+            font-size: 15px; color: #ccc; line-height: 1.6; text-align: center; margin-bottom: 40px;
+        }
+        .step-desc .highlight { color: #c9d816; font-weight: bold; }
+        
+        .step-mockup {
+            width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05); margin-top: auto; display: flex;
+        }
+        .step-mockup img { width: 100%; height: auto; object-fit: contain; }
+        
+        .steps-footer {
+            width: 100%; display: flex; justify-content: center; gap: 40px;
+            padding: 30px 40px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px; margin-top: 20px; flex-wrap: wrap;
+        }
+        .sf-item {
+            display: flex; align-items: center; gap: 15px;
+        }
+        .sf-item svg { width: 32px; height: 32px; stroke: #c9d816; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .sf-text {
+            color: #fff; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            display: flex; flex-direction: column; gap: 3px;
+        }
+        .sf-text span:last-child { color: #aaa; font-size: 12px; font-weight: 500; letter-spacing: 0.5px; }
+        
+        @media (max-width: 900px) {
+            .steps-grid { grid-template-columns: 1fr; gap: 50px; }
+            .steps-title { font-size: 32px; }
+            .steps-footer { flex-direction: column; align-items: center; gap: 25px; text-align: center; padding: 30px 20px; }
+            .sf-item { flex-direction: column; gap: 12px; }
+        }
     </style>
 </head>
 <body>
@@ -1317,9 +1395,65 @@
         <a href="#" class="invisible-btn-problem" title="Conhecer o Sistema"></a>
     </div>
 
-    <!-- Oitava Fatia: 3 Steps Process -->
-    <div class="slice-container fade-both slice-small">
-        <img src="assets/8.png" alt="Process in 3 steps" class="slice-image">
+    <!-- Nova Seção: O PROCESSO EM 3 PASSOS -->
+    <div class="steps-section">
+        <div class="steps-title">O PROCESSO EM <span class="highlight">3 PASSOS</span></div>
+        <div class="steps-subtitle">SIMPLES, RÁPIDO E PODEROSO. DO ZERO AO CONTEÚDO VIRAL.</div>
+        <div class="steps-divider"></div>
+        
+        <div class="steps-grid">
+            <!-- Passo 1 -->
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <div class="step-title">ESCOLHA O OBJETIVO</div>
+                <div class="step-desc">Quer postar uma dança no TikTok?<br>Um ensaio na praia? Selecione o<br>workflow ideal na sua biblioteca de<br><span class="highlight">300 arquivos.</span></div>
+                <div class="step-mockup"><img src="assets/step1_mock.png" alt="Biblioteca"></div>
+            </div>
+            
+            <!-- Passo 2 -->
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><polyline points="10 14 12 16 14 14"/></svg>
+                </div>
+                <div class="step-title">ARRASTE E SOLTE</div>
+                <div class="step-desc">Jogue o .json na tela do ComfyUI.<br>A iluminação, câmera e estabilidade<br>de vídeo <span class="highlight">já estão configuradas.</span></div>
+                <div class="step-mockup"><img src="assets/step2_mock.png" alt="ComfyUI"></div>
+            </div>
+            
+            <!-- Passo 3 -->
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                </div>
+                <div class="step-title">GERE E FATURE</div>
+                <div class="step-desc">Publique conteúdos incríveis diariamente,<br>atraia marcas, ganhe em AdSense e<br>feche vendas no DM <span class="highlight">sem gastar<br>com tokens.</span></div>
+                <div class="step-mockup"><img src="assets/step3_mock.png" alt="Gere e Fature"></div>
+            </div>
+        </div>
+        
+        <div class="steps-footer">
+            <div class="sf-item">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                <div class="sf-text"><span>ACESSO VITALÍCIO</span><span>E ATUALIZAÇÕES</span></div>
+            </div>
+            <div class="sf-item">
+                <svg viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/><path d="M12 12v3M12 8h.01"/></svg>
+                <div class="sf-text"><span>SEM TOKENS</span><span>NEM LIMITES</span></div>
+            </div>
+            <div class="sf-item">
+                <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <div class="sf-text"><span>100% SEGURO</span><span>E CONFIÁVEL</span></div>
+            </div>
+            <div class="sf-item">
+                <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-4h3v2z"/><path d="M3 19a2 2 0 0 0 2 2h1v-4H3v2z"/></svg>
+                <div class="sf-text"><span>SUPORTE</span><span>PRIORITÁRIO</span></div>
+            </div>
+        </div>
     </div>
 
     <!-- Terceira Fatia: Solution Section -->
