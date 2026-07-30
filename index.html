@@ -1428,6 +1428,122 @@
             .target-footer { flex-direction: column; text-align: center; padding: 25px 20px; gap: 15px; }
             .tc-title-box .p1, .tc-title-box .p2 { font-size: 20px; }
         }
+        /* Problem Section HTML */
+        .problem-section {
+            width: 100%; max-width: 1100px; margin: 80px auto; padding: 0 20px;
+            box-sizing: border-box; display: flex; flex-direction: column; align-items: center;
+        }
+        .problem-alert {
+            display: inline-flex; align-items: center; gap: 8px; border: 1px solid #ff2a2a;
+            color: #ff2a2a; padding: 8px 18px; border-radius: 6px; font-weight: bold; font-size: 14px;
+            letter-spacing: 1px; margin-bottom: 25px; background: rgba(255, 42, 42, 0.05);
+        }
+        .problem-title {
+            font-size: 46px; color: #fff; font-weight: 900; text-align: center; margin-bottom: 20px;
+            line-height: 1.1; letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .problem-title .red { color: #ff2a2a; }
+        .problem-subtitle {
+            font-size: 19px; color: #ccc; text-align: center; max-width: 850px; line-height: 1.6;
+            margin-bottom: 50px;
+        }
+        
+        .problem-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; margin-bottom: 30px;
+        }
+        .prob-card {
+            background: linear-gradient(180deg, #0f1115 0%, #060709 100%);
+            border: 1px solid rgba(100, 150, 255, 0.15); border-radius: 16px; padding: 35px;
+            display: flex; flex-direction: column; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+        .prob-number {
+            background: #fff; color: #000; width: 34px; height: 34px; border-radius: 6px;
+            display: flex; justify-content: center; align-items: center; font-weight: 900;
+            font-size: 16px; margin-bottom: 25px;
+        }
+        .prob-card-title {
+            font-size: 26px; color: #fff; font-weight: 800; margin-bottom: 15px; line-height: 1.2;
+        }
+        .prob-card-text {
+            color: #aaa; font-size: 16px; line-height: 1.6; margin-bottom: 30px;
+        }
+        .prob-img-container {
+            width: 100%; flex-grow: 1; display: flex; justify-content: center; align-items: center;
+        }
+        .prob-img-container img {
+            max-width: 100%; height: auto; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .problem-footer {
+            width: 100%; border: 1px solid rgba(100, 150, 255, 0.2); border-radius: 16px;
+            padding: 30px 40px; display: flex; align-items: center; justify-content: space-between;
+            background: linear-gradient(90deg, #090b10, #030406); gap: 30px; margin-top: 20px;
+        }
+        .pf-left { display: flex; align-items: center; gap: 20px; flex: 1; }
+        .pf-icon { width: 70px; height: 70px; flex-shrink: 0; background: rgba(100, 150, 255, 0.05); border-radius: 50%; display: flex; justify-content: center; align-items: center; border: 1px solid rgba(100, 150, 255, 0.2); }
+        .pf-icon svg { width: 35px; height: 35px; stroke: #6496ff; }
+        .pf-text-col .pf-title { color: #fff; font-size: 22px; font-weight: 800; margin-bottom: 5px; }
+        .pf-text-col .pf-desc { color: #aaa; font-size: 15px; line-height: 1.5; }
+        
+        @media (max-width: 900px) {
+            .problem-grid { grid-template-columns: 1fr; }
+            .problem-footer { flex-direction: column; text-align: center; padding: 30px 20px; }
+            .pf-left { flex-direction: column; }
+            .problem-title { font-size: 32px; }
+            .problem-subtitle { font-size: 16px; }
+        }
+
+        /* Solution Section HTML */
+        .sol-section {
+            width: 100%; max-width: 1200px; margin: 100px auto; padding: 0 20px;
+            box-sizing: border-box; display: flex; gap: 50px; align-items: center;
+        }
+        .sol-left {
+            flex: 1;
+        }
+        .sol-right {
+            flex: 1; display: flex; justify-content: center;
+        }
+        .sol-right img {
+            max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .sol-title {
+            font-size: 46px; color: #fff; font-weight: 900; line-height: 1.1; margin-bottom: 25px;
+            letter-spacing: -1px; text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .sol-title .highlight { color: #c9d816; }
+        .sol-desc {
+            font-size: 18px; color: #ddd; line-height: 1.6; margin-bottom: 40px;
+        }
+        .sol-subtitle {
+            font-size: 14px; color: #c9d816; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;
+        }
+        .sol-subtitle::after {
+            content: ""; height: 1px; flex-grow: 1; background: linear-gradient(90deg, #c9d816, transparent);
+        }
+        
+        .sol-list { display: flex; flex-direction: column; gap: 15px; }
+        .sol-item {
+            display: flex; gap: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px; border-radius: 12px; align-items: center; transition: background 0.3s;
+        }
+        .sol-item:hover { background: rgba(255,255,255,0.04); }
+        .sol-icon {
+            width: 48px; height: 48px; border: 1px solid #c9d816; border-radius: 10px;
+            display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+            background: rgba(201, 216, 22, 0.05);
+        }
+        .sol-icon svg { width: 24px; height: 24px; stroke: #c9d816; fill: none; stroke-width: 1.5; stroke-linecap: round; }
+        .sol-item-text .sit-title { font-size: 19px; color: #fff; font-weight: 800; margin-bottom: 5px; }
+        .sol-item-text .sit-desc { font-size: 15px; color: #aaa; line-height: 1.5; }
+        .sol-item-text .sit-desc .highlight { color: #c9d816; font-weight: bold; }
+        
+        @media (max-width: 900px) {
+            .sol-section { flex-direction: column; gap: 40px; }
+            .sol-title { font-size: 34px; }
+            .sol-right { order: -1; }
+        }
     </style>
 </head>
 <body>
@@ -1471,10 +1587,56 @@
         <a href="#" class="final-buy-btn hero-mobile-btn">👉 TOQUE PARA ACESSAR<br>OS 300 WORKFLOWS AGORA</a>
     </div>
 
-    <!-- Segunda Fatia: Problem Section -->
-    <div class="slice-container fade-both">
-        <img src="assets/2.png" alt="Problem Section" class="slice-image">
-        <a href="#" class="invisible-btn-problem" title="Conhecer o Sistema"></a>
+    <!-- Nova Seção: O PROBLEMA -->
+    <div class="problem-section" id="problema">
+        <div class="problem-alert">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            O PROBLEMA
+        </div>
+        <div class="problem-title">Você está perdendo milhares de reais<br>porque sua IA <span class="red">não consegue escalar.</span></div>
+        <div class="problem-subtitle">Enquanto outros criadores transformam uma única personagem em uma marca presente em todas as plataformas, a maioria ainda desperdiça tempo, dinheiro e oportunidades tentando fazer ferramentas limitadas trabalharem juntas.</div>
+        
+        <div class="problem-grid">
+            <!-- Card 1 -->
+            <div class="prob-card">
+                <div class="prob-number">01</div>
+                <div class="prob-card-title">Prisão das Plataformas</div>
+                <div class="prob-card-text">Você paga toda vez que cria. Cada tentativa custa dinheiro. Cada erro custa dinheiro. Seu lucro desaparece em mensalidades e tokens.</div>
+                <div class="prob-img-container"><img src="assets/p1_cage.png" alt="Prisão das Plataformas"></div>
+            </div>
+            <!-- Card 2 -->
+            <div class="prob-card">
+                <div class="prob-number">02</div>
+                <div class="prob-card-title">O "Efeito Boneca" nos Vídeos</div>
+                <div class="prob-card-text">Uma foto bonita é fácil. Mas transformar isso em vídeos consistentes ainda é um enorme desafio para quem depende apenas de prompts.</div>
+                <div class="prob-img-container"><img src="assets/p2_faces.png" alt="Efeito Boneca"></div>
+            </div>
+            <!-- Card 3 -->
+            <div class="prob-card">
+                <div class="prob-number">03</div>
+                <div class="prob-card-title">Nenhuma Marca Compra</div>
+                <div class="prob-card-text">Sua influenciadora parece sempre a mesma pessoa. Sem variedade de ambientes, iluminação e estilos, ela nunca parece uma criadora real. E marcas compram realismo.</div>
+                <div class="prob-img-container"><img src="assets/p3_clones.png" alt="Repetição"></div>
+            </div>
+            <!-- Card 4 -->
+            <div class="prob-card">
+                <div class="prob-number">04</div>
+                <div class="prob-card-title">O Labirinto do ComfyUI</div>
+                <div class="prob-card-text">Você sabe que o ComfyUI resolve tudo. Mas montar uma estrutura profissional do zero pode levar semanas.</div>
+                <div class="prob-img-container"><img src="assets/p4_nodes.png" alt="Labirinto"></div>
+            </div>
+        </div>
+        
+        <div class="problem-footer">
+            <div class="pf-left">
+                <div class="pf-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M23 6l-9.5 9.5-5-5L1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+                <div class="pf-text-col">
+                    <div class="pf-title">Enquanto você luta com isso...</div>
+                    <div class="pf-desc">Criadores preparados já estão publicando dezenas de conteúdos por dia, alimentando múltiplos canais e fechando parcerias usando operações totalmente automatizadas.</div>
+                </div>
+            </div>
+            <a href="#" class="btn-pricing btn-primary" style="width:auto; padding: 15px 30px; font-size: 14px;">QUERO CONHECER O SISTEMA</a>
+        </div>
     </div>
 
     <!-- Nova Seção: O PROCESSO EM 3 PASSOS -->
@@ -1538,9 +1700,55 @@
         </div>
     </div>
 
-    <!-- Terceira Fatia: Solution Section -->
-    <div class="slice-container fade-both">
-        <img src="assets/3.png" alt="Features Section" class="slice-image">
+    <!-- Nova Seção: A SOLUÇÃO -->
+    <div class="sol-section" id="solucao">
+        <div class="sol-left">
+            <div class="sol-title">Você não precisa de um tutorial.<br>Você precisa da <span class="highlight">infraestrutura pronta.</span></div>
+            <div class="sol-desc">Apresento o Pack 300 Workflows Master. Eu mapeei todas as situações, redes sociais e ângulos que uma influenciadora precisa para faturar alto e transformei isso em <span class="highlight" style="color:#c9d816;font-weight:bold;">300 arquivos de arrastar e soltar.</span></div>
+            
+            <div class="sol-subtitle">O QUE ESTA BIBLIOTECA FAZ PELO SEU NEGÓCIO:</div>
+            
+            <div class="sol-list">
+                <div class="sol-item">
+                    <div class="sol-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+                    <div class="sol-item-text">
+                        <div class="sit-title">Máquina de Vídeos Curtos</div>
+                        <div class="sit-desc">Workflows otimizados para gerar danças, trends e lip-syncs com fluidez perfeita para o <span class="highlight">TikTok e Reels.</span></div>
+                    </div>
+                </div>
+                <div class="sol-item">
+                    <div class="sol-icon"><svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2" ry="2"/><polygon points="10 10 15 12 10 14 10 10"/></svg></div>
+                    <div class="sol-item-text">
+                        <div class="sit-title">Vlogs e YouTube</div>
+                        <div class="sit-desc">Estruturas focadas em cenários dinâmicos (ao ar livre, viajando, conversando) para monetizar com <span class="highlight">AdSense.</span></div>
+                    </div>
+                </div>
+                <div class="sol-item">
+                    <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+                    <div class="sol-item-text">
+                        <div class="sit-title">Estética de Publi e Lifestyle</div>
+                        <div class="sit-desc">Arquivos de alta fidelidade simulando câmeras profissionais e iluminação natural para atrair contratos de publicidade com <span class="highlight">marcas reais.</span></div>
+                    </div>
+                </div>
+                <div class="sol-item">
+                    <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M2 22L12 2l10 20H2z"/></svg></div>
+                    <div class="sol-item-text">
+                        <div class="sit-title">Conteúdo VIP e Exclusivo</div>
+                        <div class="sit-desc">Workflows sem censura para monetizar pesado com <span class="highlight">assinaturas e PPV</span> no DM.</div>
+                    </div>
+                </div>
+                <div class="sol-item">
+                    <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+                    <div class="sol-item-text">
+                        <div class="sit-title">Geração 100% Gratuita</div>
+                        <div class="sit-desc">Seus 300 estúdios rodam no ComfyUI. <span class="highlight">Zero custo mensal. Zero tokens.</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sol-right">
+            <img src="assets/solution_collage.png" alt="Infraestrutura Pronta">
+        </div>
     </div>
 
     <!-- Nova Seção: ESTE ARSENAL É PARA VOCÊ SE: -->
