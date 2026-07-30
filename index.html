@@ -1187,6 +1187,79 @@
                 font-size: 28px;
             }
         }
+        /* Comparison Table Section */
+        .comp-section {
+            width: 100%; max-width: 1000px; margin: 80px auto; padding: 0 20px;
+            box-sizing: border-box; display: flex; flex-direction: column; align-items: center;
+        }
+        .comp-title {
+            font-size: 40px; color: #fff; font-weight: 900; text-transform: uppercase;
+            text-align: center; margin-bottom: 20px; letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .comp-title .highlight { color: #c9d816; }
+        .comp-subtitle {
+            font-size: 18px; color: #ccc; font-weight: 400; text-align: center;
+            max-width: 700px; line-height: 1.5; margin-bottom: 25px;
+        }
+        .comp-subtitle .highlight { color: #c9d816; font-weight: bold; }
+        .comp-divider {
+            width: 150px; height: 2px; background: linear-gradient(90deg, transparent, #c9d816, transparent);
+            margin: 0 auto 50px auto; box-shadow: 0 0 10px rgba(201, 216, 22, 0.5);
+        }
+        
+        .comp-table {
+            width: 100%; background: linear-gradient(180deg, #0f1115 0%, #060709 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;
+            overflow: hidden; display: flex; flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .comp-row {
+            display: flex; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .comp-row:last-child { border-bottom: none; }
+        .comp-header {
+            background: rgba(255, 255, 255, 0.02); font-weight: 800; text-transform: uppercase;
+            letter-spacing: 1px; font-size: 13px;
+        }
+        .comp-cell {
+            padding: 25px 20px; display: flex; align-items: center; gap: 15px; flex: 1;
+        }
+        .comp-col-1 { flex: 0.8; border-right: 1px solid rgba(255, 255, 255, 0.05); }
+        .comp-col-2 { flex: 1.1; border-right: 1px solid rgba(255, 255, 255, 0.05); }
+        .comp-col-3 { flex: 1.1; }
+        
+        .comp-header .comp-col-1, .comp-header .comp-col-2 { color: #fff; justify-content: center; text-align: center; }
+        .comp-header .comp-col-3 { color: #c9d816; justify-content: center; text-align: center; }
+        .comp-header .icon-x { color: #ff3b30; font-size: 16px; margin-left: 5px; }
+        .comp-header .icon-check { background: #c9d816; color: #000; width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; margin-left: 5px; }
+
+        .c-icon {
+            width: 36px; height: 36px; flex-shrink: 0;
+            display: flex; justify-content: center; align-items: center;
+        }
+        .c-icon svg { width: 100%; height: 100%; stroke: #c9d816; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .c-icon-gray svg { stroke: #666; }
+        
+        .c-text {
+            display: flex; flex-direction: column; gap: 4px;
+        }
+        .c-title {
+            color: #fff; font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .comp-col-2 .c-title { color: #888; font-weight: 500; font-size: 15px; text-transform: none; line-height: 1.3; }
+        .comp-col-3 .c-title { color: #fff; font-weight: 400; font-size: 16px; text-transform: none; line-height: 1.3; }
+        .c-title .highlight { color: #c9d816; font-weight: bold; }
+        
+        @media (max-width: 900px) {
+            .comp-header { display: none; }
+            .comp-row { flex-direction: column; padding: 20px 0; border-bottom: 2px solid rgba(255,255,255,0.05); }
+            .comp-col-1, .comp-col-2, .comp-col-3 { border: none; padding: 12px 20px; width: 100%; box-sizing: border-box; }
+            .comp-col-1 { justify-content: center; margin-bottom: 10px; background: rgba(255,255,255,0.02); }
+            .comp-col-2::before { content: "AMADORES ❌"; font-size: 11px; color: #ff3b30; font-weight: bold; width: 110px; flex-shrink: 0; }
+            .comp-col-3::before { content: "300 WORKFLOWS ✅"; font-size: 11px; color: #c9d816; font-weight: bold; width: 130px; flex-shrink: 0; }
+            .comp-title { font-size: 32px; }
+        }
     </style>
 </head>
 <body>
@@ -1251,9 +1324,100 @@
         <img src="assets/4.png" alt="Target Audience Section" class="slice-image">
     </div>
 
-    <!-- Quinta Fatia: Comparison Table Section -->
-    <div class="slice-container fade-both">
-        <img src="assets/5.1.png" alt="Comparison Table Section" class="slice-image">
+    <!-- Nova Seção: O FIM DA DOR DE CABEÇA TÉCNICA -->
+    <div class="comp-section">
+        <div class="comp-title">O FIM DA <span class="highlight">DOR DE CABEÇA TÉCNICA</span></div>
+        <div class="comp-subtitle">Veja a diferença entre perder semanas aprendendo IA do zero<br>e ter uma <span class="highlight">agência pronta</span> rodando em <span class="highlight">1 clique.</span></div>
+        <div class="comp-divider"></div>
+        
+        <div class="comp-table">
+            <!-- Header -->
+            <div class="comp-row comp-header">
+                <div class="comp-cell comp-col-1">CRITÉRIO</div>
+                <div class="comp-cell comp-col-2">CRIADORES AMADORES <span class="icon-x">❌</span></div>
+                <div class="comp-cell comp-col-3">O DONO DOS 300 WORKFLOWS <span class="icon-check">✓</span></div>
+            </div>
+            
+            <!-- Row 1 -->
+            <div class="comp-row">
+                <div class="comp-cell comp-col-1">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><path d="M15 10a3 3 0 1 0-4 1c2 0 4 1 3 3a3 3 0 1 1-5 1"/></svg></div>
+                    <div class="c-title">MONETIZAÇÃO</div>
+                </div>
+                <div class="comp-cell comp-col-2">
+                    <div class="c-icon c-icon-gray"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><polygon points="10 9 15 12 10 15 10 9"/></svg></div>
+                    <div class="c-title">Focado em<br>1 única plataforma</div>
+                </div>
+                <div class="comp-cell comp-col-3">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><polygon points="10 9 15 12 10 15 10 9"/></svg></div>
+                    <div class="c-title">Domínio no YT, TikTok,<br>Publis e VIP</div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="comp-row">
+                <div class="comp-cell comp-col-1">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+                    <div class="c-title">CUSTOS MENSAIS</div>
+                </div>
+                <div class="comp-cell comp-col-2">
+                    <div class="c-icon c-icon-gray"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><path d="M15 10a3 3 0 1 0-4 1c2 0 4 1 3 3a3 3 0 1 1-5 1"/></svg></div>
+                    <div class="c-title">Assinaturas caras<br>de IA</div>
+                </div>
+                <div class="comp-cell comp-col-3">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+                    <div class="c-title">100% Gratuito<br>(Sem Tokens)</div>
+                </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="comp-row">
+                <div class="comp-cell comp-col-1">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/><path d="M12 19c-2.3 0-4.2-1.2-5-3"/><path d="M17 16c-.8 1.8-2.7 3-5 3"/></svg></div>
+                    <div class="c-title">CONSISTÊNCIA<br>EM VÍDEO</div>
+                </div>
+                <div class="comp-cell comp-col-2">
+                    <div class="c-icon c-icon-gray"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+                    <div class="c-title">O rosto pisca<br>e deforma</div>
+                </div>
+                <div class="comp-cell comp-col-3">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+                    <div class="c-title">Vídeos fluidos com<br>Face-Lock perfeito</div>
+                </div>
+            </div>
+
+            <!-- Row 4 -->
+            <div class="comp-row">
+                <div class="comp-cell comp-col-1">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+                    <div class="c-title">VARIEDADE DE<br>CONTEÚDO</div>
+                </div>
+                <div class="comp-cell comp-col-2">
+                    <div class="c-icon c-icon-gray"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+                    <div class="c-title">Sempre o mesmo<br>cenário de quarto</div>
+                </div>
+                <div class="comp-cell comp-col-3">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+                    <div class="c-title"><span class="highlight">300 setups:</span> Estúdios,<br>Praias, Cidades, etc.</div>
+                </div>
+            </div>
+
+            <!-- Row 5 -->
+            <div class="comp-row">
+                <div class="comp-cell comp-col-1">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <div class="c-title">TEMPO DE<br>EXECUÇÃO</div>
+                </div>
+                <div class="comp-cell comp-col-2">
+                    <div class="c-icon c-icon-gray"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                    <div class="c-title">Semanas configurando<br>nós</div>
+                </div>
+                <div class="comp-cell comp-col-3">
+                    <div class="c-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                    <div class="c-title">Arquivo pronto: Escolha<br>a rede e arraste</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Nova Seção de Bônus em HTML (Substitui 6.3.png) -->
