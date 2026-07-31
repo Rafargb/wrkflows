@@ -1551,17 +1551,30 @@
             background-color: #000;
             text-align: center;
         }
+        @keyframes badge-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(163, 255, 0, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(163, 255, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(163, 255, 0, 0); }
+        }
         .gallery-badge {
-            background-color: #222;
+            background-color: rgba(163, 255, 0, 0.1);
             color: #A3FF00;
-            padding: 6px 16px;
-            border-radius: 30px;
-            display: inline-block;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-            border: 1px solid #333;
+            padding: 8px 24px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(163, 255, 0, 0.4);
+            animation: badge-pulse 2s infinite;
+            text-transform: uppercase;
+        }
+        .gallery-badge span.eye {
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 5px rgba(163, 255, 0, 0.8));
         }
         .gallery-title {
             font-size: 2.5rem;
@@ -1710,7 +1723,7 @@
 
     <!-- Nova Seção: O que sua modelo de IA vai gerar -->
     <div class="gallery-section">
-        <div class="gallery-badge">👁️ RESULTADOS REAIS</div>
+        <div class="gallery-badge"><span class="eye">👁️</span> RESULTADOS REAIS</div>
         <h2 class="gallery-title">Fotos e Vídeos criados 100% com IA</h2>
         <p class="gallery-subtitle">Todo esse conteúdo foi gerado com o nosso pacote viral de 300 Workflows sem gravar nada, sem aparecer e sem pagar nenhuma ferramenta.</p>
         
