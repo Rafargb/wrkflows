@@ -1732,10 +1732,12 @@
             <div class="gallery-item"><img src="assets/4963395053896272996.jpg" alt="Gallery Image 6"></div>
             
             <div class="gallery-item"><img src="assets/thumb-5.webp" alt="Gallery Image 7"></div>
-            <div class="gallery-item sensitive" style="cursor: pointer;" onclick="this.classList.remove('sensitive'); const v = this.querySelector('video'); v.style.opacity='1'; v.play(); this.querySelector('.sensitive-overlay').style.display='none'; this.querySelector('img').style.opacity='0';">
-                <img src="assets/thumb-7.webp" alt="Conteúdo Sensível" style="transition: opacity 0.3s;">
-                <video src="assets/banner-en.mp4" playsinline muted loop preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s; pointer-events: none;"></video>
-                <div class="sensitive-overlay">
+            <div class="gallery-item sensitive" style="cursor: pointer;" onclick="this.classList.remove('sensitive'); const v = this.querySelector('video'); v.style.opacity='1'; v.play(); this.querySelector('.sensitive-overlay').style.opacity='0'; setTimeout(()=>this.querySelector('.sensitive-overlay').style.display='none', 300); this.querySelector('img').style.opacity='0';">
+                <img src="assets/thumb-7.webp" alt="Conteúdo Sensível" style="transition: opacity 0.3s; position: relative; z-index: 1;">
+                <video playsinline muted loop preload="auto" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s; z-index: 2; pointer-events: none;">
+                    <source src="assets/video_topo.mp4" type="video/mp4">
+                </video>
+                <div class="sensitive-overlay" style="z-index: 3; transition: opacity 0.3s;">
                     <div class="eye-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
                     <div class="sens-title">Conteúdo sensível</div>
                     <div class="sens-subtitle">Toque no olho pra ver</div>
