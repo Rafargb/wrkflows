@@ -1732,8 +1732,9 @@
             <div class="gallery-item"><img src="assets/4963395053896272996.jpg" alt="Gallery Image 6"></div>
             
             <div class="gallery-item"><img src="assets/thumb-5.webp" alt="Gallery Image 7"></div>
-            <div class="gallery-item sensitive">
+            <div class="gallery-item sensitive" style="cursor: pointer;" onclick="this.classList.remove('sensitive'); const v = this.querySelector('video'); v.style.display='block'; v.play(); this.querySelector('.sensitive-overlay').style.display='none'; this.querySelector('img').style.display='none';">
                 <img src="assets/thumb-7.webp" alt="Conteúdo Sensível">
+                <video src="assets/banner-en.mp4" playsinline muted loop style="display:none; width:100%; height:100%; object-fit:cover; pointer-events: none;"></video>
                 <div class="sensitive-overlay">
                     <div class="eye-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
                     <div class="sens-title">Conteúdo sensível</div>
