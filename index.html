@@ -1293,9 +1293,9 @@
         }
         
         .step-card {
-            background: linear-gradient(180deg, #0f1115 0%, #060709 100%);
+            background: #010000;
             border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px;
-            padding: 40px 30px 30px 30px; display: flex; flex-direction: column; align-items: center;
+            padding: 40px 20px 10px 20px; display: flex; flex-direction: column; align-items: center;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5); position: relative;
         }
         .step-number {
@@ -1315,15 +1315,15 @@
             letter-spacing: 1px; margin-bottom: 20px; text-align: center;
         }
         .step-desc {
-            font-size: 15px; color: #ccc; line-height: 1.6; text-align: center; margin-bottom: 40px;
+            font-size: 15px; color: #ccc; line-height: 1.6; text-align: center; margin-bottom: 30px;
         }
         .step-desc .highlight { color: #c9d816; font-weight: bold; }
         
         .step-mockup {
-            width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.05); margin-top: auto; display: flex;
+            width: calc(100% + 40px); margin: 0 -20px; margin-top: auto; display: flex; justify-content: center;
+            border: none; box-shadow: none;
         }
-        .step-mockup img { width: 100%; height: auto; object-fit: contain; }
+        .step-mockup img { width: 100%; height: auto; object-fit: contain; transform: scale(1.05); transform-origin: bottom; }
         
         .steps-footer {
             width: 100%; display: flex; justify-content: center; gap: 40px;
