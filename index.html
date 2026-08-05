@@ -1522,11 +1522,12 @@
             flex: 1; display: flex; justify-content: center;
         }
         .sol-img-mask {
-            max-width: 100%; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            overflow: hidden; display: flex;
+            max-width: 100%; display: flex;
         }
         .sol-right img {
-            width: 100%; height: auto; margin-top: -6%; margin-bottom: -6%;
+            width: 100%; height: auto;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
         }
         .sol-title {
             font-size: 46px; color: #fff; font-weight: 900; line-height: 1.1; margin-bottom: 25px;
