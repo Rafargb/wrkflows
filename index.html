@@ -1094,15 +1094,10 @@
         .b-subtitle .highlight { color: #c9d816; }
         
         .b-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 30px;
             width: 100%;
-        }
-        @media (max-width: 900px) {
-            .b-list {
-                grid-template-columns: 1fr;
-            }
         }
         .b-item {
             display: flex;
