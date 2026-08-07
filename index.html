@@ -1566,6 +1566,61 @@
             .sol-title { font-size: 34px; }
             .sol-right { order: -1; }
         }
+        /* Comparison Section */
+        .comparison-section {
+            width: 100%;
+            display: flex;
+            margin: 60px 0;
+            background: #000;
+        }
+        .comp-half {
+            flex: 1;
+            position: relative;
+            display: flex;
+        }
+        .comp-images {
+            display: flex;
+            width: 100%;
+        }
+        .comp-images img {
+            width: 50%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+        .comp-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        .comp-text {
+            font-size: 22px;
+            color: #fff;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            text-align: center;
+        }
+        .comp-good .comp-text .highlight {
+            color: #ff0055;
+        }
+        @media (max-width: 900px) {
+            .comparison-section {
+                flex-direction: column;
+            }
+            .comp-images img {
+                height: 400px;
+            }
+        }
 
         /* Gallery Section */
         .gallery-section {
@@ -1736,6 +1791,27 @@
         </div>
 
         <a href="#" class="final-buy-btn hero-mobile-btn">👉 TOQUE PARA ACESSAR<br>OS 300 WORKFLOWS AGORA</a>
+    </div>
+    <!-- Nova Seção: Comparação -->
+    <div class="comparison-section">
+        <div class="comp-half comp-bad">
+            <div class="comp-images">
+                <img src="assets/fake1.jpg" alt="Fake AI">
+                <img src="assets/fake2.jpg" alt="Fake AI">
+            </div>
+            <div class="comp-overlay">
+                <div class="comp-text">O TÍPICO "PROMPT BÁSICO"</div>
+            </div>
+        </div>
+        <div class="comp-half comp-good">
+            <div class="comp-images">
+                <img src="assets/real1.jpg" alt="Real AI">
+                <img src="assets/real2.jpg" alt="Real AI">
+            </div>
+            <div class="comp-overlay">
+                <div class="comp-text">NOSSO WORKFLOW <span class="highlight">MULTIREFERÊNCIA DE 3 PASSOS</span></div>
+            </div>
+        </div>
     </div>
 
     <!-- Nova Seção: O que sua modelo de IA vai gerar -->
