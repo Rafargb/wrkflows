@@ -1629,7 +1629,7 @@
             position: relative;
             aspect-ratio: 3/4;
         }
-        .gallery-item img {
+        .gallery-item img, .gallery-item video {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -1745,15 +1745,20 @@
         <p class="gallery-subtitle">Todo esse conteúdo foi gerado com o nosso pacote viral de 300 Workflows sem gravar nada, sem aparecer e sem pagar nenhuma ferramenta.</p>
         
         <div class="gallery-grid">
+            <div class="gallery-item"><video src="assets/viral1.mp4" autoplay loop muted playsinline></video></div>
             <div class="gallery-item"><img src="assets/hero-carousel-1.webp" alt="Gallery Image 1"></div>
+            <div class="gallery-item"><video src="assets/viral2.mp4" autoplay loop muted playsinline></video></div>
+            
             <div class="gallery-item"><img src="assets/thumb-3.webp" alt="Gallery Image 2"></div>
+            <div class="gallery-item"><video src="assets/viral3.mp4" autoplay loop muted playsinline></video></div>
             <div class="gallery-item"><img src="assets/thumb-6.webp" alt="Gallery Image 3"></div>
             
+            <div class="gallery-item"><video src="assets/viral4.mp4" autoplay loop muted playsinline></video></div>
             <div class="gallery-item"><img src="assets/thumb-0.webp" alt="Gallery Image 4"></div>
-            <div class="gallery-item"><img src="assets/hero-carousel-2.webp" alt="Gallery Image 5"></div>
-            <div class="gallery-item"><img src="assets/4963395053896272996.jpg" alt="Gallery Image 6"></div>
+            <div class="gallery-item"><video src="assets/viral5.mp4" autoplay loop muted playsinline></video></div>
             
-            <div class="gallery-item"><img src="assets/thumb-5.webp" alt="Gallery Image 7"></div>
+            <div class="gallery-item"><img src="assets/hero-carousel-2.webp" alt="Gallery Image 5"></div>
+            <div class="gallery-item"><video src="assets/viral6.mp4" autoplay loop muted playsinline></video></div>
             <div class="gallery-item sensitive" style="cursor: pointer;" onclick="this.classList.remove('sensitive'); this.querySelector('.sensitive-overlay').style.opacity='0'; setTimeout(()=>this.querySelector('.sensitive-overlay').style.display='none', 300); this.querySelector('.blur-cover').style.opacity='0';">
                 <img src="assets/nicho_quente.jpg" alt="Nicho Quente" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
                 <img class="blur-cover" src="assets/thumb-7.webp" alt="Conteúdo Sensível" style="position: relative; z-index: 1; transition: opacity 0.5s; filter: blur(15px) brightness(0.6); width: 100%; height: 100%; object-fit: cover;">
