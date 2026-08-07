@@ -1513,21 +1513,10 @@
         /* Solution Section HTML */
         .sol-section {
             width: 100%; max-width: 1200px; margin: 100px auto; padding: 0 20px;
-            box-sizing: border-box; display: flex; gap: 50px; align-items: center;
+            box-sizing: border-box; display: flex; flex-direction: column; gap: 40px; align-items: center; text-align: center;
         }
-        .sol-left {
-            flex: 1;
-        }
-        .sol-right {
-            flex: 1; display: flex; justify-content: center;
-        }
-        .sol-img-mask {
-            max-width: 100%; display: flex;
-        }
-        .sol-right img {
-            width: 100%; height: auto;
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
-            mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+        .sol-header {
+            max-width: 900px; margin: 0 auto;
         }
         .sol-title {
             font-size: 46px; color: #fff; font-weight: 900; line-height: 1.1; margin-bottom: 25px;
@@ -1535,17 +1524,28 @@
         }
         .sol-title .highlight { color: #c9d816; }
         .sol-desc {
-            font-size: 18px; color: #ddd; line-height: 1.6; margin-bottom: 40px;
+            font-size: 18px; color: #ddd; line-height: 1.6; margin-bottom: 20px;
+        }
+        .sol-animation {
+            width: 100%; max-width: 900px; margin: 0 auto 20px auto; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
+        }
+        .sol-animation img {
+            width: 100%; height: auto; display: block;
+        }
+        .sol-content {
+            width: 100%; max-width: 1000px; margin: 0 auto; text-align: left;
         }
         .sol-subtitle {
-            font-size: 14px; color: #c9d816; font-weight: 800; text-transform: uppercase;
-            letter-spacing: 2px; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;
+            font-size: 16px; color: #c9d816; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 30px; display: flex; align-items: center; justify-content: center; gap: 15px; text-align: center;
         }
-        .sol-subtitle::after {
-            content: ""; height: 1px; flex-grow: 1; background: linear-gradient(90deg, #c9d816, transparent);
+        .sol-subtitle::before, .sol-subtitle::after {
+            content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, transparent, #c9d816, transparent);
         }
-        
-        .sol-list { display: flex; flex-direction: column; gap: 15px; }
+        .sol-list { 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; 
+        }
         .sol-item {
             display: flex; gap: 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
             padding: 20px; border-radius: 12px; align-items: center; transition: background 0.3s;
@@ -1562,9 +1562,10 @@
         .sol-item-text .sit-desc .highlight { color: #c9d816; font-weight: bold; }
         
         @media (max-width: 900px) {
-            .sol-section { flex-direction: column; gap: 40px; }
             .sol-title { font-size: 34px; }
-            .sol-right { order: -1; }
+            .sol-list { grid-template-columns: 1fr; }
+            .sol-subtitle::before, .sol-subtitle::after { display: none; }
+            .sol-subtitle { justify-content: center; text-align: center; }
         }
         /* Comparison Slider Section */
         .comparison-section {
@@ -2005,10 +2006,16 @@
 
     <!-- Nova Seção: A SOLUÇÃO -->
     <div class="sol-section" id="solucao">
-        <div class="sol-left">
+        <div class="sol-header">
             <div class="sol-title">Você não precisa de um tutorial.<br>Você precisa da <span class="highlight">infraestrutura pronta.</span></div>
             <div class="sol-desc">Apresento o Pack 300 Workflows Master. Eu mapeei todas as situações, redes sociais e ângulos que uma influenciadora precisa para faturar alto e transformei isso em <span class="highlight" style="color:#c9d816;font-weight:bold;">300 arquivos de arrastar e soltar.</span></div>
-            
+        </div>
+        
+        <div class="sol-animation">
+            <img src="assets/hypermodels-preview.gif" alt="Infraestrutura Pronta">
+        </div>
+        
+        <div class="sol-content">
             <div class="sol-subtitle">O QUE ESTA BIBLIOTECA FAZ PELO SEU NEGÓCIO:</div>
             
             <div class="sol-list">
@@ -2030,7 +2037,7 @@
                     <div class="sol-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
                     <div class="sol-item-text">
                         <div class="sit-title">Estética de Publi e Lifestyle</div>
-                        <div class="sit-desc">Arquivos de alta fidelidade simulando câmeras profissionais e iluminação natural para atrair contratos de publicidade com <span class="highlight">marcas reais.</span></div>
+                        <div class="sit-desc">Arquivos de alta fidelidade simulando câmeras profissionais e iluminação natural para atrair contratos com <span class="highlight">marcas reais.</span></div>
                     </div>
                 </div>
                 <div class="sol-item">
@@ -2047,11 +2054,6 @@
                         <div class="sit-desc">Seus 300 estúdios rodam no ComfyUI. <span class="highlight">Zero custo mensal. Zero tokens.</span></div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="sol-right">
-            <div class="sol-img-mask">
-                <img src="assets/hypermodels-preview.gif" alt="Infraestrutura Pronta">
             </div>
         </div>
     </div>
