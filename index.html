@@ -1566,60 +1566,74 @@
             .sol-title { font-size: 34px; }
             .sol-right { order: -1; }
         }
-        /* Comparison Section */
+        /* Comparison Slider Section */
         .comparison-section {
             width: 100%;
-            display: flex;
             margin: 60px 0;
             background: #000;
         }
-        .comp-half {
-            flex: 1;
+        .comp-slider-container {
             position: relative;
-            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .comp-layer {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+        .comp-good {
+            clip-path: inset(0 0 0 50%);
         }
         .comp-images {
             display: flex;
-            width: 100%;
+            width: 100%; height: 100%;
         }
         .comp-images img {
-            width: 50%;
-            height: 600px;
-            object-fit: cover;
-            display: block;
+            width: 50%; height: 100%;
+            object-fit: cover; display: block;
         }
         .comp-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 180px;
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 180px;
             background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
-            display: flex;
-            align-items: flex-end;
-            padding: 30px;
-            box-sizing: border-box;
+            display: flex; align-items: flex-end; padding: 30px; box-sizing: border-box;
         }
+        .comp-bad .comp-overlay { justify-content: flex-start; }
+        .comp-good .comp-overlay { justify-content: flex-end; }
         .comp-text {
-            font-size: 22px;
-            color: #fff;
-            font-weight: 700;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: 100%;
-            text-align: center;
+            font-size: 22px; color: #fff; font-weight: 700; font-style: italic;
+            text-transform: uppercase; letter-spacing: 1px; width: 50%; text-align: center;
         }
-        .comp-good .comp-text .highlight {
-            color: #ff0055;
+        .comp-good .comp-text .highlight { color: #ff0055; }
+        
+        #comp-slider {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%; opacity: 0;
+            cursor: ew-resize; z-index: 10; margin: 0;
         }
+        .comp-handle {
+            position: absolute; top: 0; bottom: 0; left: 50%;
+            width: 2px; background: white; pointer-events: none; z-index: 5;
+            transform: translateX(-50%);
+        }
+        .comp-handle-btn {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 46px; height: 46px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5); color: black;
+        }
+        .comp-handle-btn svg { width: 24px; height: 24px; }
+        
         @media (max-width: 900px) {
-            .comparison-section {
-                flex-direction: column;
-            }
-            .comp-images img {
-                height: 400px;
-            }
+            .comp-slider-container { height: 400px; }
+            .comp-text { font-size: 14px; width: 100%; padding: 0 10px; }
+            .comp-bad .comp-overlay, .comp-good .comp-overlay { justify-content: center; }
         }
 
         /* Gallery Section */
@@ -1792,27 +1806,55 @@
 
         <a href="#" class="final-buy-btn hero-mobile-btn">👉 TOQUE PARA ACESSAR<br>OS 300 WORKFLOWS AGORA</a>
     </div>
-    <!-- Nova Seção: Comparação -->
+    <!-- Nova Seção: Comparação (Slider) -->
     <div class="comparison-section">
-        <div class="comp-half comp-bad">
-            <div class="comp-images">
-                <img src="assets/fake1.jpg" alt="Fake AI">
-                <img src="assets/fake2.jpg" alt="Fake AI">
+        <div class="comp-slider-container">
+            <!-- Background (Bad) -->
+            <div class="comp-layer comp-bad">
+                <div class="comp-images">
+                    <img src="assets/fake1.jpg" alt="Fake AI">
+                    <img src="assets/fake2.jpg" alt="Fake AI">
+                </div>
+                <div class="comp-overlay">
+                    <div class="comp-text">O TÍPICO "PROMPT BÁSICO"</div>
+                </div>
             </div>
-            <div class="comp-overlay">
-                <div class="comp-text">O TÍPICO "PROMPT BÁSICO"</div>
+            
+            <!-- Foreground (Good) -->
+            <div class="comp-layer comp-good" id="comp-fg">
+                <div class="comp-images">
+                    <img src="assets/real1.jpg" alt="Real AI">
+                    <img src="assets/real2.jpg" alt="Real AI">
+                </div>
+                <div class="comp-overlay">
+                    <div class="comp-text">NOSSO WORKFLOW <span class="highlight">MULTIREFERÊNCIA DE 3 PASSOS</span></div>
+                </div>
             </div>
-        </div>
-        <div class="comp-half comp-good">
-            <div class="comp-images">
-                <img src="assets/real1.jpg" alt="Real AI">
-                <img src="assets/real2.jpg" alt="Real AI">
-            </div>
-            <div class="comp-overlay">
-                <div class="comp-text">NOSSO WORKFLOW <span class="highlight">MULTIREFERÊNCIA DE 3 PASSOS</span></div>
+            
+            <!-- Slider Input -->
+            <input type="range" min="0" max="100" value="50" id="comp-slider">
+            
+            <!-- Slider Handle -->
+            <div class="comp-handle" id="comp-handle">
+                <div class="comp-handle-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l3-3-3-3M9 6L6 9l3 3M21 9h-6M9 9H3"/></svg>
+                </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        const compSlider = document.getElementById('comp-slider');
+        const compFg = document.getElementById('comp-fg');
+        const compHandle = document.getElementById('comp-handle');
+        
+        compSlider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            // The good layer is clipped from the left based on the slider value
+            compFg.style.clipPath = `inset(0 0 0 ${val}%)`;
+            compHandle.style.left = `${val}%`;
+        });
+    </script>
 
     <!-- Nova Seção: O que sua modelo de IA vai gerar -->
     <div class="gallery-section">
